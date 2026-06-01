@@ -191,7 +191,7 @@ async function askOrca(orcaKey, { symbol, price, change, rsi, macd, bbPos, score
   const prompt = `暗号資産トレーダーとして分析してください。
 ${symbol}: $${price?.toLocaleString()} | 24h: ${change?.toFixed(2)}%
 RSI: ${rsi?.toFixed(1) ?? "N/A"} | MACD Hist: ${macd?.hist?.toFixed(5) ?? "N/A"}
-BB%: ${bbPos?.toFixed(0) ?? "N/A"}% | スコア: ${score:+.0f}/100
+BB%: ${bbPos?.toFixed(0) ?? "N/A"}% | スコア: ${score > 0 ? "+" : ""}${score.toFixed(0)}/100
 シグナル: ${reasons.slice(0, 4).join(", ")}
 
 スコア+${SCORE_THRESHOLD}以上→BUY、-${SCORE_THRESHOLD}以下→SELL(先物のみ)、それ以外→HOLD
